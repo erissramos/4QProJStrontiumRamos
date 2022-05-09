@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PSHS Library Card Application Form</title>
+
+<meta charset="UTF-8">
+<meta name="author" content="My Name">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="revised" content="28-06-2020">
+
+<style>
+* {
+	box-sizing: border-box;
+	margin-top: 1%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+body {
+	background-color: #c8dcfa;
+}
+
+fieldset {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+
+legend {
+	font-size: 30px;
+	color: #182842;
+	font-family: Verdana;
+}
+
+label {
+	font-size: 17px;
+	font-family: Verdana;
+}
+
+input[type=text], select, textarea {
+	width: 50%;
+	padding: 12px;
+	border: 1px solid #ccc
+	border-radius: 4px;
+	resize: vertical;
+}
+
+input[type=reset] {
+	background-color: #182842;
+	color: white;
+	font-family: Verdana;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 10px 20px;
+	margin: 4px 2px;
+}
+
+a {
+	text-decoration: none;
+	font-family: Verdana;
+	display: inline-block;
+	padding: 16px 32px;
+	margin: 4px 2px;
+}
+
+a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.previous {
+	background-color: #f1f1f1;
+	color: black;
+}
+
+.next {
+	background-color: #182842;
+	color: white;
+}
+</style>
+</head>
+<body>
+	<form action="/action_page.php" method="post">
+		<fieldset>
+			<legend>Student's Information</legend>
+				<label for="name">Full Name:
+					<input type="text" id="name" name="name" onfocus="focusName()" onblur="blurName()">
+				</label><br><br>
+				<label>Gender:<br>
+					<input type="radio" name="gender" id="gender" value="Male"/>Male<br>
+					<input type="radio" name="gender" id="gender" value="Female"/>Female<br>
+					<input type="radio" name="gender" id="gender" value="PNS"/>Prefer Not to Mention<br><br>
+				</label>
+				<label for="section">Grade and Section:
+					<input type="text" id="section" name="section" onfocus="focusSection()" onblur="blurSection()">
+				</label><br><br>
+				<label for="idNum">Valid ID Number:
+					<input type="tel" id="idNum" name="idNum" pattern="[0-9]{2}-[0-9]{6}" onfocus="focusIdNum()" onblur="blurIdNum()">
+				</label><br><br>
+				<label for="email">Email:
+					<input type="email" id="email" name="email" onfocus="focusEmail()" onblur="blurEmail()">
+				</label><br><br>
+				<label for="mobileNumber">Mobile Number:
+					<input type="tel" id="mobileNumber" name="mobileNumber" pattern="[789][0-9]{9}" onfocus="focusMobileNumber()" onblur="blurMobileNumber()">
+				</label>
+				<label for="homeNumber">Home Number:
+					<input type="tel" id="homeNumber" name="homeNumber" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onfocus="focusHomeNumber()" onblur="blurHomeNumber()">
+				</label><br><br>
+				<label for="address">Home Address: 
+					<input type="text" id="address" name="address" onfocus="focusAddress()" onblur="blurAddress()">
+				</label><br><br>
+				
+		</fieldset><br>
+		<fieldset>
+			<legend>Guardian's Information</legend>
+				<label for="name">Name:
+					<input type="text" id="gName" name="name" onfocus="focusGname()" onblur="blurGname()">
+				</label><br><br>
+				<label for="relation">Relation to Student:
+					<input type="text" id="relation" name="relation" onfocus="focusRelation()" onblur="blurRelation()">
+				</label><br><br>
+				<label for="occupation">Occupation:
+					<input type="text" id="occupation" name="occupation"onfocus="focusOccupation()" onblur="blurOccupation()">
+				</label><br><br>
+				<label for="mobileNumber">Mobile Number:
+					<input type="tel" id="gMobileNumber" name="mobileNumber" pattern="[789][0-9]{9}" onfocus="focusGMobileNumber()" onblur="blurGMobileNumber()">
+				</label>
+				<label for="workNumber">Work Number:
+					<input type="tel" id="workNumber" name="workNumber" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onfocus="focusWorkNumber()" onblur="blurWorkNumber()">
+				</label><br><br>
+		</fieldset><br><br>
+		<input type = "reset" value = "Reset"><br><br>
+		<center>
+			<a href="index.html" class="previous">&laquo; Previous</a>
+			<a href="questions.html" class="next">Next &raquo;</a>
+		</center><br>
+	</form>
+</body>
+
+<script>
+	function blurName() {
+		var x = document.getElementById("name");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}
+	}		
+	function focusName() {
+		var x = document.getElementById("name");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurSection() {
+		var x = document.getElementById("section");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}
+	}		
+	function focusSection() {
+		var x = document.getElementById("section");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurIdNum() {
+		var x = document.getElementById("idNum");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}
+	}		
+	function focusIdNum() {
+		var x = document.getElementById("idNum");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurEmail() {
+		var x = document.getElementById("email");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}
+	}		
+	function focusEmail() {
+		var x = document.getElementById("email");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurMobileNumber() {
+		var x = document.getElementById("mobileNumber");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}
+	}		
+	function focusMobileNumber() {
+		var x = document.getElementById("mobleNumber");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurHomeNumber() {
+		var x = document.getElementById("homeNumber");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}
+	}		
+	function focusHomeNumber() {
+		var x = document.getElementById("homeNumber");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurAddress() {
+		var x = document.getElementById("address");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}	
+	}		
+	function focusAddress() {
+		var x = document.getElementById("address");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurGname() {
+		var x = document.getElementById("gName");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}	
+	}		
+	function focusGname() {
+		var x = document.getElementById("gName");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurRelation() {
+		var x = document.getElementById("relation");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}	
+	}		
+	function focusRelation() {
+		var x = document.getElementById("relation");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurOccupation() {
+		var x = document.getElementById("occupation");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}	
+	}		
+	function focusOccupation() {
+		var x = document.getElementById("occupation");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurGMobileNumber() {
+		var x = document.getElementById("gMobileNumber");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}	
+	}		
+	function focusGMobileNumber() {
+		var x = document.getElementById("gMobileNumber");
+		x.style.border = "2px solid #afccb1";
+	}
+	function blurWorkNumber() {
+		var x = document.getElementById("workNumber");
+		if (x.value == ""){
+		x.style.border = "2px solid #ba757a";
+		}	
+	}		
+	function focusWorkNumber() {
+		var x = document.getElementById("workNumber");
+		x.style.border = "2px solid #afccb1";
+	}
+</script>
+</html>

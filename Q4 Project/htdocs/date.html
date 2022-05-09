@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PSHS Library Card Application Form</title>
+
+<meta charset="UTF-8">
+<meta name="author" content="My Name">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="revised" content="28-06-2020">
+
+<style>
+* {
+	box-sizing: border-box;
+	margin-top: 1%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+body {
+	background-color: #c8dcfa;
+}
+
+fieldset {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+
+h2 {
+	font-family: Verdana;
+	color: #182842;
+}
+
+legend {
+	font-size: 30px;
+	color: #182842;
+	font-family: Verdana;
+}
+
+p {
+	font-family: Verdana;
+}
+
+label {
+	font-family: Verdana;
+}
+
+a {
+	text-decoration: none;
+	font-family: Verdana;
+	display: inline-block;
+	padding: 16px 32px;
+	margin: 4px 2px;
+}
+
+a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.previous {
+	background-color: #f1f1f1;
+	color: black;
+}
+
+input[type=reset] {
+	background-color: #182842;
+	color: white;
+	font-family: Verdana;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 10px 20px;
+	margin: 4px 2px;
+}
+
+input[type=submit] {
+	background-color: #182842;
+	color: white;
+	font-family: Verdana;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 16px 32px;
+	margin: 4px 2px;
+}
+</style>
+</head>
+
+<body>
+	<form action="/action_page.php" method="post" onsubmit="submitForm()">
+		<fieldset>
+			<center>
+				<h2>PSHS Library Schedule</h2>
+				<p>Monday: 07:00 - 17:00</p>
+				<p>Tuesday: 07:00 - 17:00</p>
+				<p>Wednesday: 07:00 - 17:00</p>
+				<p>Thursday: 07:00 - 17:00</p>
+				<p>Friday: 07:00 - 17:00</p>
+			</center><br>
+		</fieldset>
+		<fieldset>
+			<p>Please Specify the specific date you want to pick-up your PSHS Library Card.</p>
+			<label for="start">Date of Pick-Up:</label>
+			<input type="date" id="date" name="date" min="2022-01-01" max="2022-12-31"><br><br>
+		</fieldset><br>
+		<input type = "reset" value = "Reset"><br>
+		<center>
+			<a href="reminders.html" class="previous">&laquo; Previous</a>
+			<input id="submit" type="submit" value="Submit";
+		</center>
+	</form>
+</body>
+<script>
+	function submitForm() {
+		alert("Thank you! Your application was submitted.");
+	}
+</script>

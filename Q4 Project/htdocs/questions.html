@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PSHS Library Card Application Form</title>
+
+<meta charset="UTF-8">
+<meta name="author" content="My Name">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="revised" content="28-06-2020">
+
+<style>
+* {
+	box-sizing: border-box;
+	margin-top: 1%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+body {
+	background-color: #c8dcfa;
+}
+
+fieldset {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+
+legend {
+	font-size: 30px;
+	color: #182842;
+	font-family: Verdana;
+}
+
+label {
+	font-size: 17px;
+	font-family: Verdana;
+}
+
+input[type=reset] {
+	background-color: #182842;
+	color: white;
+	font-family: Verdana;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 10px 20px;
+	margin: 4px 2px;
+}
+
+a {
+	text-decoration: none;
+	font-family: Verdana;
+	display: inline-block;
+	padding: 16px 32px;
+	margin: 4px 2px;
+}
+
+a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.previous {
+	background-color: #f1f1f1;
+	color: black;
+}
+
+.next {
+	background-color: #182842;
+	color: white;
+}
+</style>
+</head>
+<body>
+	<form action="/action_page.php" method="post">
+		<fieldset>
+		<legend>Quick Questions</legend>
+			<center>
+				<img src="images/library.jpg" style="height: 300px; width: 500px" alt = "PSHS MC Library";><br><br>
+			</center>
+			<label>What will you be using the library for?<br>
+				<input type="checkbox" id="reference" name="choices" value="Reference">
+				<label for="reference">Reference</label><br>
+				<input type="checkbox" id="IHR" name="choices" value="In-House Reading">
+				<label for="IHR">In-House Reading</label><br>
+				<input type="checkbox" id="borrowing" name="choices" value="Borrowing">
+				<label for="borrowing">Borrowing</label>
+			</label><br><br><br>
+			<label>What section/s of the library will you want access to?<br>
+				<input type="checkbox" id="nonFic" name="choices" value="Non-Fiction">
+				<label for="nonFic">Non-Fiction</label><br>
+				<input type="checkbox" id="fic" name="choices" value="Fiction">
+				<label for="fic">Fiction</label><br>
+				<input type="checkbox" id="magazines" name="choices" value="Magazines">
+				<label for="magazines">Magazines</label><br>
+				<input type="checkbox" id="electronics" name="choices" value="Electronics">
+				<label for="electronics">Electronics</label><br>
+				<input type="checkbox" id="reRe" name="choices" value="Research & Reference">
+				<label for="reRe">Research & Reference</label><br><br><br>
+		</fieldset><br>
+		<input type = "reset" value = "Reset"><br><br>
+		<center>
+			<a href="information.html" class="previous">&laquo; Previous</a>
+			<a href="reminders.html" class="next">Next &raquo;</a>
+		</center>
+	</form>
+</body>
+</html>
