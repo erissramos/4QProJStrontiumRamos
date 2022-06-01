@@ -17,27 +17,30 @@
 }
 
 body {
-	background-color: #c8dcfa;
+	background-color: #99b8e8;
 }
 
 fieldset {
 	border-radius: 5px;
-	background-color: #f2f2f2;
+	background-color: #f7f7f7;
 	padding: 20px;
 }
 
 legend {
+	background-color: #1c3f75;
 	font-size: 30px;
-	color: #182842;
-	font-family: Verdana;
+	color: white;
+	font-family: Helvetica;
+	padding: 12px 24px;
+	border-radius: 5px;
 }
 
 label {
 	font-size: 17px;
-	font-family: Verdana;
+	font-family: Helvetica;
 }
 
-input[type=text], select, textarea {
+input[type=text], input[type=tel], input[type=email] {
 	width: 50%;
 	padding: 12px;
 	border: 1px solid #ccc
@@ -48,19 +51,32 @@ input[type=text], select, textarea {
 input[type=reset] {
 	background-color: #182842;
 	color: white;
-	font-family: Verdana;
+	font-family: Helvetica;
 	font-size: 16px;
 	text-decoration: none;
 	padding: 10px 20px;
 	margin: 4px 2px;
+	border-radius: 5px;
+}
+
+.showData {
+	text-decoration: none;
+	font-family: Helvetica;
+	padding: 2px 2px;
+	border-radius: 5px;
+}
+
+p {
+	font-family: Helvetica;
 }
 
 a {
 	text-decoration: none;
-	font-family: Verdana;
+	font-family: Helvetica;
 	display: inline-block;
-	padding: 16px 32px;
+	padding: 12px 24px;
 	margin: 4px 2px;
+	border-radius: 5px;
 }
 
 a:hover {
@@ -83,53 +99,105 @@ a:hover {
 	<form action="/action_page.php" method="post">
 		<fieldset>
 			<legend>Student's Information</legend>
-				<label for="name">Full Name:
-					<input type="text" id="name" name="name" onfocus="focusName()" onblur="blurName()">
-				</label><br><br>
-				<label>Gender:<br>
-					<input type="radio" name="gender" id="gender" value="Male"/>Male<br>
-					<input type="radio" name="gender" id="gender" value="Female"/>Female<br>
-					<input type="radio" name="gender" id="gender" value="PNS"/>Prefer Not to Mention<br><br>
-				</label>
-				<label for="section">Grade and Section:
-					<input type="text" id="section" name="section" onfocus="focusSection()" onblur="blurSection()">
-				</label><br><br>
-				<label for="idNum">Valid ID Number:
-					<input type="tel" id="idNum" name="idNum" pattern="[0-9]{2}-[0-9]{6}" onfocus="focusIdNum()" onblur="blurIdNum()">
-				</label><br><br>
-				<label for="email">Email:
-					<input type="email" id="email" name="email" onfocus="focusEmail()" onblur="blurEmail()">
-				</label><br><br>
-				<label for="mobileNumber">Mobile Number:
-					<input type="tel" id="mobileNumber" name="mobileNumber" pattern="[789][0-9]{9}" onfocus="focusMobileNumber()" onblur="blurMobileNumber()">
-				</label>
-				<label for="homeNumber">Home Number:
-					<input type="tel" id="homeNumber" name="homeNumber" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onfocus="focusHomeNumber()" onblur="blurHomeNumber()">
-				</label><br><br>
-				<label for="address">Home Address: 
-					<input type="text" id="address" name="address" onfocus="focusAddress()" onblur="blurAddress()">
-				</label><br><br>
+				<div>
+					<label for="name">Full Name:	<!╌ Student's full name ╌>
+						<input type="text" id="name" name="name" placeholder="Full Name" onfocus="focusName()" onblur="blurName()">
+						<input type="button" class="showData" onclick="displayName()" value="Show Data">	<!╌ Button to trigger function that displays user's input ╌>
+						<p style="text-indent: 11%" id="demoName"></p>
+					</label>
+				</div>
+				<div>
+					<label>Gender:		<!╌ Student's Gender ╌> 
+						<input type="button" class="showData" onclick="displayGender()" value="Show Data"><br>
+						<input type="radio" name="gender" id="gender" value="Male"/>Male<br>
+						<input type="radio" name="gender" id="gender" value="Female"/>Female<br>
+						<input type="radio" name="gender" id="gender" value="PNS"/>Prefer Not to Mention<br>
+						<p id="demoGender"></p>
+					</label>
+				</div>
+				<div>
+					<label for="section">Grade and Section:		<!╌Student's Grade and Section╌>
+						<input type="text" id="section" name="section" placeholder="Grade and Section" onfocus="focusSection()" onblur="blurSection()">
+						<input type="button" class="showData" onclick="displaySection()" value="Show Data"><br>
+						<p style="text-indent: 16%" id="demoSection"></p>
+					</label><br>
+				</div>
+				<div>
+					<label for="idNum">Valid ID Number:		<!╌ Student's ID Number ╌>
+						<input type="tel" id="idNum" name="idNum" pattern="[0-9]{2}-[0-9]{6}" placeholder="XX-XXXXXX" onfocus="focusIdNum()" onblur="blurIdNum()">
+						<input type="button" class="showData" onclick="displayIdNum()" value="Show Data"><br>
+						<p style="text-indent: 14%" id="demoIdNum"></p>
+					</label><br>
+				</div>
+				<div>
+					<label for="email">School Email:	<!╌ Student's School Email ╌>
+						<input type="email" id="email" name="email" placeholder="Email" onfocus="focusEmail()" onblur="blurEmail()">
+						<input type="button" class="showData" onclick="displayEmail()" value="Show Data"><br>
+						<p style="text-indent: 12%" id="demoEmail"></p>
+					</label><br>
+				</div>
+				<div>
+					<label for="mobileNumber">Mobile Number:	<!╌ Student's Mobile Number ╌>
+						<input type="tel" id="mobileNumber" name="mobileNumber" pattern="[+63][0-9]{9}" placeholder="+63 XXXXXXXXX" onfocus="focusMobileNumber()" onblur="blurMobileNumber()">
+						<input type="button" class="showData" onclick="displayMobileNumber()" value="Show Data"><br>
+						<p style="text-indent: 14%" id="demoMobileNumber"></p>
+					</label><br>
+				</div>
+				<div>
+					<label for="homeNumber">Home Number:	<!╌Student's Home Number╌>
+						<input type="tel" id="homeNumber" name="homeNumber" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="XXX-XX-XXX" onfocus="focusHomeNumber()" onblur="blurHomeNumber()">
+						<input type="button" class="showData" onclick="displayHomeNumber()" value="Show Data"><br>
+						<p style="text-indent: 13%" id="demoHomeNumber"></p>
+					</label><br>
+				</div>
+				<div>
+					<label for="address">Home Address:		<!╌ Student's Home Address ╌>
+						<input type="text" id="address" name="address" onfocus="focusAddress()" placeholder="Address" onblur="blurAddress()">
+						<input type="button" class="showData" onclick="displayAddress()" value="Show Data"><br>
+						<p style="text-indent: 13%" id="demoAddress"></p>
+					</label><br>
+				</div>
 				
 		</fieldset><br>
 		<fieldset>
 			<legend>Guardian's Information</legend>
-				<label for="name">Name:
-					<input type="text" id="gName" name="name" onfocus="focusGname()" onblur="blurGname()">
-				</label><br><br>
-				<label for="relation">Relation to Student:
-					<input type="text" id="relation" name="relation" onfocus="focusRelation()" onblur="blurRelation()">
-				</label><br><br>
-				<label for="occupation">Occupation:
-					<input type="text" id="occupation" name="occupation"onfocus="focusOccupation()" onblur="blurOccupation()">
-				</label><br><br>
-				<label for="mobileNumber">Mobile Number:
-					<input type="tel" id="gMobileNumber" name="mobileNumber" pattern="[789][0-9]{9}" onfocus="focusGMobileNumber()" onblur="blurGMobileNumber()">
-				</label>
-				<label for="workNumber">Work Number:
-					<input type="tel" id="workNumber" name="workNumber" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onfocus="focusWorkNumber()" onblur="blurWorkNumber()">
-				</label><br><br>
+				<div>
+					<label for="name">Name:		<!╌ Guardian's Name ╌>
+						<input type="text" id="gName" name="name" placeholder="Guardian's Name" onfocus="focusGname()" onblur="blurGname()">
+						<input type="button" class="showData" onclick="displayGname()" value="Show Data"><br>
+						<p style="text-indent: 7%" id="demoGname"></p>
+					</label><br>
+				</div>
+				<div>
+					<label for="relation">Relation to Student:		<!╌ Guardian's Relation to Student ╌>
+						<input type="text" id="relation" name="relation" placeholder="Relation" onfocus="focusRelation()" onblur="blurRelation()">
+						<input type="button" class="showData" onclick="displayRelation()" value="Show Data"><br>
+						<p style="text-indent: 16%" id="demoRelation"></p>
+					</label><br>
+				</div>
+				<div>
+					<label for="occupation">Occupation:		<!╌ Guardian's Occupation ╌>
+						<input type="text" id="occupation" name="occupation" placeholder="Occupation" onfocus="focusOccupation()" onblur="blurOccupation()">
+						<input type="button" class="showData" onclick="displayOccupation()" value="Show Data"><br>
+						<p style="text-indent: 11%" id="demoOccupation"></p>
+					</label><br>
+				</div>
+				<div>
+					<label for="mobileNumber">Mobile Number:	<!╌ Guardian's Mobile Number ╌>
+						<input type="tel" id="gMobileNumber" name="mobileNumber" pattern="[+63][0-9]{9}" placeholder="+63 XXXXXXXXX" onfocus="focusGMobileNumber()" onblur="blurGMobileNumber()">
+						<input type="button" class="showData" onclick="displayGMobileNumber()" value="Show Data"><br>
+						<p style="text-indent: 13%" id="demoGMobileNumber"></p>
+					</label>
+				</div>
+				<div>
+					<label for="workNumber">Work Number:	<!╌ Guardian's Work Number ╌>
+						<input type="tel" id="workNumber" name="workNumber"pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="XXX-XX-XXX" onfocus="focusWorkNumber()" onblur="blurWorkNumber()">
+						<input type="button" class="showData" onclick="displayWorkNumber()" value="Show Data"><br>
+						<p style="text-indent: 13%" id="demoWorkNumber"></p>
+					</label><br>
+				</div>
 		</fieldset><br><br>
-		<input type = "reset" value = "Reset"><br><br>
+		<input type="reset" value="Reset"><br><br>
 		<center>
 			<a href="index.html" class="previous">&laquo; Previous</a>
 			<a href="questions.html" class="next">Next &raquo;</a>
@@ -137,7 +205,83 @@ a:hover {
 	</form>
 </body>
 
-<script>
+<script type="text/javascript">
+	//functions for displaying user's inputs
+	//student's inputs
+	function displayName() {
+		var name = document.getElementById("name");
+		localStorage.setItem("name", name.value);
+		document.getElementById("demoName").innerHTML = localStorage.getItem("name");
+	}
+	function displayGender() {
+		var gender = document.getElementById("gender");
+		localStorage.setItem("gender", gender.value);
+		document.getElementById("demoGender").innerHTML = localStorage.getItem("gender");
+	}
+	function displaySection() {
+		var section = document.getElementById("section");
+		localStorage.setItem("section", section.value);
+		document.getElementById("demoSection").innerHTML = localStorage.getItem("section");
+	}
+	function displayIdNum() {
+		var idNum = document.getElementById("idNum");
+		localStorage.setItem("idNum", idNum.value);
+		document.getElementById("demoIdNum").innerHTML = localStorage.getItem("idNum");
+	}
+	function displayEmail() {
+		var idNum = document.getElementById("email");
+		localStorage.setItem("email", email.value);
+		document.getElementById("demoEmail").innerHTML = localStorage.getItem("email");
+	}
+	function displayMobileNumber() {
+		var mobileNumber = document.getElementById("mobileNumber");
+		localStorage.setItem("mobileNumber", mobileNumber.value);
+		document.getElementById("demoMobileNumber").innerHTML = localStorage.getItem("mobileNumber");
+	}
+	function displayHomeNumber() {
+		var homeNumber = document.getElementById("homeNumber");
+		localStorage.setItem("homeNumber", homeNumber.value);
+		document.getElementById("demoHomeNumber").innerHTML = localStorage.getItem("homeNumber");
+	}
+	function displayAddress() {
+		var address = document.getElementById("address");
+		localStorage.setItem("address", address.value);
+		document.getElementById("demoAddress").innerHTML = localStorage.getItem("address");
+		
+	//inputs for student's guardian
+	}
+	function displayGname() {
+		var gName = document.getElementById("gName");
+		localStorage.setItem("gName", gName.value);
+		document.getElementById("demoGname").innerHTML = localStorage.getItem("gName");
+	}
+	function displayRelation() {
+		var relation = document.getElementById("relation");
+		localStorage.setItem("relation", relation.value);
+		document.getElementById("demoRelation").innerHTML = localStorage.getItem("relation");
+	}
+	function displayOccupation() {
+		var occupation = document.getElementById("occupation");
+		localStorage.setItem("occupation", occupation.value);
+		document.getElementById("demoOccupation").innerHTML = localStorage.getItem("occupation");
+	}
+	function displayGMobileNumber() {
+		var gMobileNumber = document.getElementById("gMobileNumber");
+		localStorage.setItem("gMobileNumber", gMobileNumber.value);
+		document.getElementById("demoGMobileNumber").innerHTML = localStorage.getItem("gMobileNumber");
+	}
+	function displayRelation() {
+		var relation = document.getElementById("relation");
+		localStorage.setItem("relation", relation.value);
+		document.getElementById("demoRelation").innerHTML = localStorage.getItem("relation");
+	}
+	function displayWorkNumber() {
+		var workNumber = document.getElementById("workNumber");
+		localStorage.setItem("workNumber", workNumber.value);
+		document.getElementById("demoWorkNumber").innerHTML = localStorage.getItem("workNumber");
+	}
+	
+	//functions for onblur and onfocus events
 	function blurName() {
 		var x = document.getElementById("name");
 		if (x.value == ""){
@@ -258,5 +402,6 @@ a:hover {
 		var x = document.getElementById("workNumber");
 		x.style.border = "2px solid #afccb1";
 	}
+	
 </script>
 </html>
