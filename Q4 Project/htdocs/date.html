@@ -17,40 +17,51 @@
 }
 
 body {
-	background-color: #c8dcfa;
+	background-color: #99b8e8;
 }
 
 fieldset {
 	border-radius: 5px;
-	background-color: #f2f2f2;
+	background-color: #f7f7f7;
 	padding: 20px;
 }
 
 h2 {
-	font-family: Verdana;
+	font-family: Helvetica;
 	color: #182842;
 }
 
 legend {
+	background-color: #1c3f75;
 	font-size: 30px;
-	color: #182842;
-	font-family: Verdana;
+	color: white;
+	font-family: Helvetica;
+	padding: 12px 24px;
+	border-radius: 5px;
 }
 
 p {
-	font-family: Verdana;
+	font-family: Helvetica;
 }
 
 label {
-	font-family: Verdana;
+	font-family: Helvetica;
+}
+
+.showData {
+	text-decoration: none;
+	font-family: Helvetica;
+	padding: 2px 2px;
+	border-radius: 5px;
 }
 
 a {
 	text-decoration: none;
-	font-family: Verdana;
+	font-family: Helvetica;
 	display: inline-block;
-	padding: 16px 32px;
+	padding: 12px 24px;
 	margin: 4px 2px;
+	border-radius: 5px;
 }
 
 a:hover {
@@ -66,21 +77,23 @@ a:hover {
 input[type=reset] {
 	background-color: #182842;
 	color: white;
-	font-family: Verdana;
+	font-family: Helvetica;
 	font-size: 16px;
 	text-decoration: none;
 	padding: 10px 20px;
 	margin: 4px 2px;
+	border-radius: 5px;
 }
 
 input[type=submit] {
 	background-color: #182842;
 	color: white;
-	font-family: Verdana;
+	font-family: Helvetica;
 	font-size: 16px;
 	text-decoration: none;
-	padding: 16px 32px;
 	margin: 4px 2px;
+	padding: 12px 24px;
+	border-radius: 5px;
 }
 </style>
 </head>
@@ -99,17 +112,24 @@ input[type=submit] {
 		</fieldset>
 		<fieldset>
 			<p>Please Specify the specific date you want to pick-up your PSHS Library Card.</p>
-			<label for="start">Date of Pick-Up:</label>
-			<input type="date" id="date" name="date" min="2022-01-01" max="2022-12-31"><br><br>
+			<label>Date of Pick-Up:
+				<input type="date" id="date" value="2022-01-01">
+				<input type="button" class="showData" onclick="displayDate()" value="Show Data">
+				<p id="demoDate"></p>
+			</label>
 		</fieldset><br>
 		<input type = "reset" value = "Reset"><br>
 		<center>
 			<a href="reminders.html" class="previous">&laquo; Previous</a>
-			<input id="submit" type="submit" value="Submit";
+			<input type="submit" id="submit" value="Submit">
 		</center>
 	</form>
 </body>
 <script>
+	function displayDate() {	//displays date selected by user
+	  var x = document.getElementById("date").value;	//assigns selected date to var x
+	  document.getElementById("demoDate").innerHTML = x;	//prints date in paragraph element
+	}
 	function submitForm() {
 		alert("Thank you! Your application was submitted.");
 	}
