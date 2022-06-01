@@ -17,42 +17,54 @@
 }
 
 body {
-	background-color: #c8dcfa;
+	background-color: #99b8e8;
 }
 
 fieldset {
 	border-radius: 5px;
-	background-color: #f2f2f2;
+	background-color: #f7f7f7;
 	padding: 20px;
 }
 
 legend {
+	background-color: #1c3f75;
 	font-size: 30px;
-	color: #182842;
-	font-family: Verdana;
+	color: white;
+	font-family: Helvetica;
+	padding: 12px 24px;
+	border-radius: 5px;
 }
 
 label {
 	font-size: 17px;
-	font-family: Verdana;
+	font-family: Helvetica;
 }
 
 input[type=reset] {
 	background-color: #182842;
 	color: white;
-	font-family: Verdana;
+	font-family: Helvetica;
 	font-size: 16px;
 	text-decoration: none;
 	padding: 10px 20px;
 	margin: 4px 2px;
+	border-radius: 5px;
+}
+
+.showData {
+	text-decoration: none;
+	font-family: Helvetica;
+	padding: 2px 2px;
+	border-radius: 5px;
 }
 
 a {
 	text-decoration: none;
-	font-family: Verdana;
+	font-family: Helvetica;
 	display: inline-block;
-	padding: 16px 32px;
+	padding: 12px 24px;
 	margin: 4px 2px;
+	border-radius: 5px;
 }
 
 a:hover {
@@ -78,25 +90,34 @@ a:hover {
 			<center>
 				<img src="images/library.jpg" style="height: 300px; width: 500px" alt = "PSHS MC Library";><br><br>
 			</center>
-			<label>What will you be using the library for?<br>
-				<input type="checkbox" id="reference" name="choices" value="Reference">
-				<label for="reference">Reference</label><br>
-				<input type="checkbox" id="IHR" name="choices" value="In-House Reading">
-				<label for="IHR">In-House Reading</label><br>
-				<input type="checkbox" id="borrowing" name="choices" value="Borrowing">
-				<label for="borrowing">Borrowing</label>
-			</label><br><br><br>
-			<label>What section/s of the library will you want access to?<br>
-				<input type="checkbox" id="nonFic" name="choices" value="Non-Fiction">
-				<label for="nonFic">Non-Fiction</label><br>
-				<input type="checkbox" id="fic" name="choices" value="Fiction">
-				<label for="fic">Fiction</label><br>
-				<input type="checkbox" id="magazines" name="choices" value="Magazines">
-				<label for="magazines">Magazines</label><br>
-				<input type="checkbox" id="electronics" name="choices" value="Electronics">
-				<label for="electronics">Electronics</label><br>
-				<input type="checkbox" id="reRe" name="choices" value="Research & Reference">
-				<label for="reRe">Research & Reference</label><br><br><br>
+			<div>	<!╌ Checkboxes for uses of library ╌>
+				<label>What will you be using the library for?
+					<input type="button" class="showData" onclick="displayUse()" value="Show Data"><br>		<!╌ Button to trigger function that displays user's input ╌>
+						<input type="checkbox" id="reference" name="choices" value="Reference">
+						<label for="reference">Reference</label><br>
+						<input type="checkbox" id="IHR" name="choices" value="In-House Reading">
+						<label for="IHR">In-House Reading</label><br>
+						<input type="checkbox" id="borrowing" name="choices" value="Borrowing">
+						<label for="borrowing">Borrowing</label>
+					<p id="demoUse"></p>
+				</label><br>
+			</div>
+			<div>	<!╌ Checkboxes for what student can access in the library ╌>
+				<label>What section/s of the library will you want access to?
+					<input type="button" class="showData" onclick="displayAccess()" value="Show Data"><br>
+						<input type="checkbox" id="nonFic" name="options" value="Non-Fiction">
+						<label for="nonFic">Non-Fiction</label><br>
+						<input type="checkbox" id="fic" name="options" value="Fiction">
+						<label for="fic">Fiction</label><br>
+						<input type="checkbox" id="magazines" name="options" value="Magazines">
+						<label for="magazines">Magazines</label><br>
+						<input type="checkbox" id="electronics" name="options" value="Electronics">
+						<label for="electronics">Electronics</label><br>
+						<input type="checkbox" id="reRe" name="options" value="Research & Reference">
+						<label for="reRe">Research & Reference</label><br><br><br>
+					<p id="demoAccess"></p>
+				</label>
+			</div>
 		</fieldset><br>
 		<input type = "reset" value = "Reset"><br><br>
 		<center>
@@ -104,5 +125,27 @@ a:hover {
 			<a href="reminders.html" class="next">Next &raquo;</a>
 		</center>
 	</form>
+	<script>
+		function displayUse() {	//displays student's selected uses for the library
+			var x = "";
+			var choices = document.getElementsByName("choices");
+			for (var i = 0; i < choices.length; i++) {	//tests if index is less than .length
+				if (choices[i].checked) { 	//if choice is checked by user
+				x = x + choices[i].value + ", ";	//value of choice is assigned to var x
+				}
+			}
+			document.getElementById("demoUse").innerHTML = x;	//prints choices in paragraph element below the question
+		}
+		function displayAccess() {	//displays student's selected access to library materials
+			var x = "";
+			var options = document.getElementsByName("options");
+			for (var i = 0; i < options.length; i++) {
+				if (options[i].checked) {
+				x = x + options[i].value + ", ";
+				}
+			}
+			document.getElementById("demoAccess").innerHTML = x;
+		}
+	</script>
 </body>
 </html>
